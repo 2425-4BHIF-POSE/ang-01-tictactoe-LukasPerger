@@ -1,1 +1,5 @@
-<p>board works!</p>
+<div class="grid-container">
+  @for (i of Array(9); track $index){
+    <app-board-cell id="cell{{$index}}" class="grid-item"></app-board-cell>
+  }
+</div>

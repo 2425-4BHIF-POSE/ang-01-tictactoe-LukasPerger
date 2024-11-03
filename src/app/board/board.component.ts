@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
+import {BoardCellComponent} from './board-cell/board-cell.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [],
+  imports: [
+    BoardCellComponent
+  ],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
 export class BoardComponent {
 
+  protected readonly Number = Number;
+  protected readonly Array = Array;
+  protected readonly Range = Range;
 }
