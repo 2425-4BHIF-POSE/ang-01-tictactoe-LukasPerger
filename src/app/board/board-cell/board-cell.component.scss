@@ -1,10 +1,15 @@
-button {
+div {
+  display: flex;
   border: 1px solid lightslategrey;
   border-radius: 0.5rem;
   background-color: #101414;
-  color: lightslategrey;
   font-family: sans-serif;
   height: 10rem;
   width: 10rem;
   margin: 0;
+  font-size: 3rem;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
