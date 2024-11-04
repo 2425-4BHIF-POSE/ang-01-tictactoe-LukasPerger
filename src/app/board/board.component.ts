@@ -11,8 +11,7 @@ import {BoardCellComponent} from './board-cell/board-cell.component';
   styleUrl: './board.component.scss'
 })
 export class BoardComponent {
-
-  protected readonly Number = Number;
   protected readonly Array = Array;
-  protected readonly Range = Range;
+
+
 }

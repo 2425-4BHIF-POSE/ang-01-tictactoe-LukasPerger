@@ -1,3 +1,15 @@
 <div>
-  x
+  @switch(state()){
+    @case(CellState.Empty) {
+      {{EMPTY_CHAR}}
+    }
+
+    @case(CellState.Red) {
+      {{RED_CHAR}}
+    }
+
+    @case(CellState.Blue) {
+      {{BLUE_CHAR}}
+    }
+  }
 </div>
