@@ -1,5 +1,4 @@
-import {Component, signal, WritableSignal} from '@angular/core';
-import {CellState} from '../../../model';
+import {Component, input, Input, InputSignal, output, OutputEmitterRef, signal, WritableSignal} from '@angular/core';
 
 @Component({
   selector: 'app-board-cell',
@@ -9,10 +8,22 @@ import {CellState} from '../../../model';
   styleUrl: './board-cell.component.scss'
 })
 export class BoardCellComponent {
-  protected readonly EMPTY_CHAR: String = "";
-  protected readonly RED_CHAR: String = "x";
-  protected readonly BLUE_CHAR: String = "o";
-  protected readonly CellState = CellState;
+  @Input()
+  public rowIdx: number = 0;
+  @Input()
+  public colIdx: number = 0;
+  public readonly turn: InputSignal<string> = input.required();
+  protected readonly content: WritableSignal<string> = signal("");
+  public readonly onClicked: OutputEmitterRef<ClickEvent> = output();
 
-  public readonly state: WritableSignal<CellState> = signal(CellState.Empty);
+  protected handleClick(): void{
+    if(this.content() != ""){
+      return;
+    }
+
+    this.content.set(this.turn());
+    this.onClicked.emit([this.rowIdx, this.colIdx])
+  }
 }
+
+export type ClickEvent = [number, number];

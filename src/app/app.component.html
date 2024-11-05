@@ -1,4 +1,18 @@
 <div>
-  <app-board id="board"></app-board>
-  <button mat-raised-button>Repeat</button>
+  <app-board [turn]="turn()" (onEnd)="handleEnd($event)" (onClicked)="handleTurnChange()"></app-board>
+  @if(gameState() === GameStates.PlayerOTurn ||
+    gameState() === GameStates.PlayerXTurn){
+    <div>Turn of Player {{turn()}}</div>
+  }
+  @else if(gameState() === GameStates.Draw){
+    <div>DRAW</div>
+  }
+  @else{
+    <div>Player {{getString()}} won!</div>
+  }
+  @if(gameState() === GameStates.Draw ||
+    gameState() === GameStates.PlayerOWin ||
+    gameState() === GameStates.PlayerXWin){
+    <button mat-raised-button (click)="repeat()">Repeat</button>
+  }
 </div>

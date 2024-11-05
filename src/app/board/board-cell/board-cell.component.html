@@ -1,15 +1,3 @@
-<div>
-  @switch(state()){
-    @case(CellState.Empty) {
-      {{EMPTY_CHAR}}
-    }
-
-    @case(CellState.Red) {
-      {{RED_CHAR}}
-    }
-
-    @case(CellState.Blue) {
-      {{BLUE_CHAR}}
-    }
-  }
+<div (click)="handleClick()">
+  {{content()}}
 </div>

@@ -1,5 +1,13 @@
-#board {
+app-board {
   display: grid;
   justify-content: center;
   margin-top: 1rem;
+}
+
+div > div{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  color: white;
+  font-family: sans-serif;
 }

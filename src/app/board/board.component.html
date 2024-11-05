@@ -1,5 +1,7 @@
 <div class="grid-container">
-  @for (i of Array(9); track $index){
-    <app-board-cell id="cell{{$index}}" class="grid-item"></app-board-cell>
+  @for(row of Array(3); track rowIdx; let rowIdx = $index){
+    @for(col of Array(3); track colIdx; let colIdx = $index){
+      <app-board-cell [turn]="turn()" [rowIdx]="rowIdx" [colIdx]="colIdx" (onClicked)="handleClick($event)" class="grid-item"></app-board-cell>
+    }
   }
 </div>
