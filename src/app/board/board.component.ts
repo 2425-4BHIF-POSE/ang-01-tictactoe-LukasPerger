@@ -54,8 +54,8 @@ export class BoardComponent {
   }
 
   private won(checkFor: State, rowIdx: number, colIdx: number): boolean {
-    return this.wonRow(checkFor, rowIdx) &&
-      this.wonCol(checkFor, colIdx) &&
+    return this.wonRow(checkFor, rowIdx) ||
+      this.wonCol(checkFor, colIdx) ||
       this.wonDiag(checkFor);
   }
 
